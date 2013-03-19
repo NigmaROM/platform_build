@@ -334,7 +334,6 @@ function set_stuff_for_environment()
     setpaths
     set_sequence_number
 
-    export ANDROID_BUILD_TOP=$(gettop)
     # With this environment variable new GCC can apply colors to warnings/errors
     export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 }
@@ -1603,6 +1602,7 @@ validate_current_shell
 source_vendorsetup
 addcompletions
 
+
 # check and set ccache path on envsetup
 if [ -z ${CCACHE_EXEC} ]; then
     ccache_path=$(which ccache)
@@ -1613,3 +1613,5 @@ if [ -z ${CCACHE_EXEC} ]; then
         echo "ccache not found/installed!"
     fi
 fi
+
+export ANDROID_BUILD_TOP=$(gettop)
