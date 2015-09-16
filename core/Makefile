@@ -4036,10 +4036,6 @@ endif
 # -----------------------------------------------------------------
 # host tools needed to build dist and OTA packages
 
-ifeq ($(BUILD_OS),darwin)
-  build_ota_package := false
-  build_otatools_package := false
-else
   # Set build_ota_package, and allow opt-out below.
   build_ota_package := true
   ifeq ($(TARGET_SKIP_OTA_PACKAGE),true)
@@ -4071,7 +4067,6 @@ else
   ifeq ($(TARGET_SKIP_OTATOOLS_PACKAGE),true)
     build_otatools_package := false
   endif
-endif
 
 ifeq ($(build_otatools_package),true)
 
